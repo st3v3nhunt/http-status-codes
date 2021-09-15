@@ -36,13 +36,13 @@ async function handleRequest(request: Request): Promise<Response> {
       headers: { "content-type": "text/html" },
     });
   } else if (path.endsWith(".ico")) {
-    const iconPath = path.split('/').pop()
+    const iconPath = path.split("/").pop();
     const file = await Deno.readFile(`./assets/img/${iconPath}`);
     return new Response(file, {
       headers: { "content-type": "image/x-icon" },
     });
   } else if (path.endsWith(".png")) {
-    const imagePath = path.split('/').pop()
+    const imagePath = path.split("/").pop();
     const file = await Deno.readFile(`./assets/img/${imagePath}`);
     return new Response(file, {
       headers: { "content-type": "image/png" },
