@@ -1,11 +1,21 @@
 import statusCodes from "./src/status-codes.ts";
 
+function isStatusInRange(status: number): boolean {
+  return status < 200 || status > 599;
+}
+
+function doesStatusCauseError(status: number): boolean {
+  return status === 304;
+}
+
 function generateResponse(status: number): Response {
   return new Response(JSON.stringify(statusCodes[status]), {
     headers: { "content-type": "application/json; charset=UTF-8" },
-    // Prevent error when status code < 200 - https://github.com/denoland/deno/blob/v1.14.0/ext/fetch/23_response.js#L266
-    status: status < 200 ? 200 : status,
-    statusText: "statusText",
+    // In order to prevent errors for certain status codes and
+    // only return those in valid range return a 200
+    status:
+      isStatusInRange(status) || doesStatusCauseError(status) ? 200 : status,
+    statusText: "statusText something",
   });
 }
 
