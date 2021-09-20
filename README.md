@@ -5,16 +5,16 @@
 
 The app can be useful for testing how other apps respond to receiving responses
 with different status codes in a really simple manner. It is built using
-[TypeScript](https://www.typescriptlang.org/) and runs on the
-Deno runtime, specifically [Deno Deploy](https://deno.com/deploy).
+[TypeScript](https://www.typescriptlang.org/) and runs on the Deno runtime,
+specifically [Deno Deploy](https://deno.com/deploy).
 
 ## Prerequisites
 
 In order to develop and run scripts locally, both Deno and Deno Deploy need to
 be available:
 
-* [Deno](https://deno.land/manual/getting_started/installation)
-* [deployctl](https://deno.com/deploy/docs/running-scripts-locally)
+- [Deno](https://deno.land/manual/getting_started/installation)
+- [deployctl](https://deno.com/deploy/docs/running-scripts-locally)
 
 ## Running locally
 
