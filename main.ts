@@ -14,8 +14,9 @@ function generateResponse(status: number): Response {
     headers: { "content-type": "application/json; charset=UTF-8" },
     // In order to prevent errors for certain status codes and
     // only return those in valid range return a 200
-    status:
-      !isStatusInRange(status) || doesStatusCauseError(status) ? 200 : status,
+    status: !isStatusInRange(status) || doesStatusCauseError(status)
+      ? 200
+      : status,
     statusText: "statusText something",
   });
 }
