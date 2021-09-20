@@ -21,7 +21,7 @@ be available:
 Start the app (in watch mode) by running:
 
 ```sh
-deployctl run --watch status.ts
+deployctl run --watch main.ts
 ```
 
 ### Deno Deploy types
