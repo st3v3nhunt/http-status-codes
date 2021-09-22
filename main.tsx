@@ -35,9 +35,9 @@ function App() {
       <head>
         <title>HTTP Status Codes</title>
       </head>
-    <body>
-    <h1>HTTP Status Codes</h1>
-    </body>
+      <body>
+        <h1>HTTP Status Codes</h1>
+      </body>
     </html>
   );
 }
@@ -48,7 +48,7 @@ async function handleRequest(request: Request): Promise<Response> {
   const path = url.pathname;
 
   if (path === "/") {
-    return new Response('<!DOCTYPE html>' + renderToString(<App />), {
+    return new Response("<!DOCTYPE html>" + renderToString(<App />), {
       headers: { "content-type": "text/html" },
     });
   } else if (path.endsWith(".ico")) {
