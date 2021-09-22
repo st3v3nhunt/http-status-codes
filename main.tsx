@@ -1,4 +1,6 @@
 import statusCodes from "./src/status-codes.ts";
+import { h } from "https://x.lcas.dev/preact@10.5.12/mod.js";
+import { renderToString } from "https://x.lcas.dev/preact@10.5.12/ssr.js";
 
 function isStatusInRange(status: number): boolean {
   return status > 199 && status < 600;
@@ -27,14 +29,26 @@ function getStatusCode(url: string): number {
   return parseInt(statusRaw, 10);
 }
 
+function App() {
+  return (
+    <html lang="en">
+      <head>
+        <title>HTTP Status Codes</title>
+      </head>
+    <body>
+    <h1>HTTP Status Codes</h1>
+    </body>
+    </html>
+  );
+}
+
 async function handleRequest(request: Request): Promise<Response> {
   console.log("Request:", request);
   const url = new URL(request.url);
   const path = url.pathname;
 
   if (path === "/") {
-    const file = await Deno.readFile("./assets/views/home.html");
-    return new Response(file, {
+    return new Response('<!DOCTYPE html>' + renderToString(<App />), {
       headers: { "content-type": "text/html" },
     });
   } else if (path.endsWith(".ico")) {
