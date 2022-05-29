@@ -16,8 +16,8 @@ function generateResponse(status: number): Response {
     // In order to prevent errors for certain status codes and
     // only return those in valid range return a 200
     status: !isStatusInRange(status) || doesStatusCauseError(status)
-    ? 200
-    : status,
+      ? 200
+      : status,
     statusText: "statusText something",
   });
 }
@@ -31,26 +31,25 @@ function getStatusCode(url: URL): number {
 function App() {
   return (
     <html lang="en">
-    <head>
-    <title>HTTP Status Codes</title>
-    </head>
-    <body>
-    <h1>HTTP Status Codes</h1>
-    <p>{new Date().toLocaleString()}</p>
-    </body>
+      <head>
+        <title>HTTP Status Codes</title>
+      </head>
+      <body>
+        <h1>HTTP Status Codes</h1>
+        <p>{new Date().toLocaleString()}</p>
+      </body>
     </html>
   );
 }
 
 async function handleRequest(request: Request): Promise<Response> {
-  const start = performance.now()
+  const start = performance.now();
   console.log("Request:", request);
   const url = new URL(request.url);
   const path = url.pathname;
-  let response
+  let response;
 
   if (path === "/") {
-    performance.mark('b')
     response = new Response(renderToString(App()), {
       headers: { "content-type": "text/html" },
     });
@@ -72,10 +71,10 @@ async function handleRequest(request: Request): Promise<Response> {
       ? generateResponse(400)
       : generateResponse(statusCode);
   }
-  const end = performance.now()
-  console.log(`Request for ${path} took ${end-start} milliseconds.`)
-  return response
+  const end = performance.now();
+  console.log(`Request for ${path} took ${end - start} milliseconds.`);
+  return response;
 }
 
-serve(handleRequest)
-console.log('Listening on port 8000')
+serve(handleRequest);
+console.log("Listening on port 8000");

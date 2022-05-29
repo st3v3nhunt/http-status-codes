@@ -12,8 +12,7 @@ with different status codes in a really simple manner. It is built using
 ## Prerequisites
 
 In order to develop and run scripts locally
-[Deno](https://deno.land/manual/getting_started/installation)
-must be installed.
+[Deno](https://deno.land/manual/getting_started/installation) must be installed.
 
 ## Running locally
 
