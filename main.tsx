@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.141.0/http/server.ts";
+import { h } from "https://esm.sh/preact@10.7.2";
 import { renderToString } from "https://esm.sh/preact-render-to-string@5.2.0";
 import statusCodes from "./src/status-codes.ts";
 
