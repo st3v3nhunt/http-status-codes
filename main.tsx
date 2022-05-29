@@ -1,6 +1,6 @@
+import { serve } from "https://deno.land/std@0.141.0/http/server.ts";
+import { renderToString } from "https://esm.sh/preact-render-to-string@5.2.0";
 import statusCodes from "./src/status-codes.ts";
-import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
-import { renderToString } from "https://esm.sh/preact-render-to-string@5.1.19?deps=preact@10.5.15";
 
 function isStatusInRange(status: number): boolean {
   return status > 199 && status < 600;
